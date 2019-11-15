@@ -1,0 +1,48 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html{
+	scroll-behavior:smooth;
+}
+body{
+	background-color: #E6E6FA;
+	font-family: 'ZCOOL XiaoWei', serif;
+
+}
+ul{
+overflow: visible;
+font-weight: bold;
+}
+.navbar{
+	
+	height: 70px;
+}
+
+
+#bcimg{
+	background-image: url('../images/first.jpeg');
+	background-size: cover; 
+	background-position: center;
+	height: 100vh;
+	background-attachment: fixed;
+	position: relative;
+}
+#corslider{
+	position: absolute;
+	top: 50%;
+	
+	left: 35%;
+}
+.imgText{
+	color: #fff!important;
+	
+	font-weight: bold;
+	font-size: 30px;
+	text-transform: uppercase;
+}
+
+
+
+
+
