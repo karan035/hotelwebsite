@@ -203,47 +203,47 @@
 				</div>
 				<div class="tab-content" >
 				<div class="tab-pane fade show active" id="signup" >
-					<form class="mt-4 w-100" >
+					<form class="mt-4 w-100"  onsubmit="return signUpValidation()">
 						<div class="form-row ">
 							<div class="col">
-								<input type="text" class="form-control" placeholder="First name">
+								<input type="text" class="form-control" id="fname" placeholder="First name">
+								<span id="userfirstname"></span>
 							</div>
 							<div class="col">
-								<input type="text" class="form-control" placeholder="Last name">
+								<input type="text" class="form-control" id="lname" placeholder="Last name">
+								<span id="userlastname"></span>
 							</div>
 						</div>
 						<div class="form-row mt-3">
 							<div class="col">
-								<input type="number" class="form-control" placeholder="contact number">
+								<input type="number" class="form-control"id="num" placeholder="contact number">
+								<span id="usernumber"></span>
 							</div>
 							
 						</div>
 						<div class="form-row mt-3">
 							<div class="col">
-								<input type="text" class="form-control" placeholder="password">
+								<input type="password" class="form-control" id="password" placeholder="password">
+								<span id="userpd"></span>
 							</div>
 							
 						</div>
 						<div class="form-row mt-3">
 							<div class="col">
-								<input type="text" class="form-control" placeholder="confirm password">
+								<input type="password" class="form-control" id="cpassword" placeholder="confirm password">
+								<span id="usercpd"></span>
 							</div>
 							
 						</div>
 
 						<div class="form-row mt-3">
 							<div class="col">
-								<input type="email" class="form-control" placeholder="email">
+								<input type="text" class="form-control" id="email" placeholder="email">
+								<span id="userremail"></span>
 							</div>
 							
 						</div>
-						<div class="form-row mt-3">
-							<div class="col">
-								<input type="date" class="form-control" name="dob">
-								
-							</div>
-							
-						</div>
+						
 						<button type="sumbit" class="btn btn-primary mt-3">SIGN UP</button>
 					</form>
 				</div>
@@ -267,11 +267,11 @@
 			</div>
 			<div class="col-lg-6 col-md-6 col-sm-12">
 				
-				<div class="embed-responsive embed-responsive-4by3 mt-4 ">
+				<div class=" embed-responsive embed-responsive-4by3 mt-4 ">
 					<iframe class="embed-responsive-item" src="media/addver.mp4"></iframe>
 				</div>
 			
-			</div>
+			
 		</div>
 			
 		</div>
@@ -369,6 +369,79 @@
 		$('.fixed-top').css('background', 'rgba(23, 162, 184, 0.9)');
 		}
 		});
+
+			function signUpValidation(){
+
+	var fname=document.getElementById('fname').value;
+	var lname=document.getElementById('lname').value;
+	var num=document.getElementById('num').value;
+	
+	var password=document.getElementById('password').value;
+	var cpassword=document.getElementById('cpassword').value;
+	var email=document.getElementById('email').value;
+	var userfname=/^[A-Za-z.]{3,30}$/;
+	var userlname=/^[A-Za-z.]{3,30}$/;
+	var usernum=/^[6789][0-9]{9}$/;
+	var userpassword=/^[a-z\d@#$%!-]{2,20}$/;
+	var useremail=/^[A-Za-z_]{3,}@[A-Za-z]{3,}[.]{1}[A-Za-z]{2,6}$/;
+
+	if(userfname.test(fname)){
+		document.getElementById('userfirstname').innerHTML="";
+
+	}else
+	{
+		document.getElementById('userfirstname').innerHTML=" invalid user name";
+		return false;
+	}
+	if(userlname.test(lname)){
+		document.getElementById('userlastname').innerHTML="";
+
+	}else
+	{
+		document.getElementById('userlastname').innerHTML=" invalid last name";
+		return false;
+	}
+	if(usernum.test(num)){
+		document.getElementById('usernumber').innerHTML="";
+
+	}else
+	{
+		document.getElementById('usernumber').innerHTML=" invalid mobile number";
+		return false;
+	}
+
+
+if(userpassword.test(password)){
+		document.getElementById('userpd').innerHTML="";
+
+	}else
+	{
+		document.getElementById('userpd').innerHTML="enter some special character";
+		return false;
+	}
+	if(password.match(cpassword)){
+		document.getElementById('usercpd').innerHTML="";
+
+	}else
+	{
+		document.getElementById('usercpd').innerHTML="password not matched";
+		return false;
+	}
+	if(useremail.test(email)){
+		document.getElementById('userremail').innerHTML="";
+
+	}else
+	{
+		document.getElementById('userremail').innerHTML="Please enter valid email";
+		return false;
+	}
+
+
+	
+
+}
+
+
 		</script>
 	</body>
 </html>
